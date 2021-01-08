@@ -1,0 +1,137 @@
+<?xml version="0.0" ?>
+<robot name="basket_cube_red.urdf">
+  <link name="base">
+    <contact>
+      <lateral_friction value="1.0"/>
+    </contact>
+    <inertial>
+      <origin rpy="1.57 0 0" xyz="0 0 0"/>
+       <mass value="10.0"/>
+       <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1"/>
+    </inertial>
+    <visual>
+      <origin rpy="1.57 0 0" xyz="0 0 0"/>
+      <geometry>
+				<mesh filename="surface.obj" scale=".1 .1 .1"/>
+      </geometry>
+       <material name="taban">
+        <color rgba="1 0 0 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="1.57 0 0" xyz="0 0 0"/>
+      <geometry>
+	 	   <box size="0.2 0.01 0.2"/>
+      </geometry>
+    </collision>
+	 </link>
+
+   <link name="left">
+    <contact>
+      <lateral_friction value="1.0"/>
+    </contact>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0.1 0.15"/>
+      <geometry>
+        <mesh filename="surface.obj" scale=".1 .1 .15"/>
+      </geometry>
+       <material name="left">
+        <color rgba="1 0 0 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0.1 0.15"/>
+      <geometry>
+       <box size="0.2 0.01 0.3"/>
+      </geometry>
+    </collision>
+    </link>
+
+    <link name="right">
+      <contact>
+      <lateral_friction value="1.0"/>
+    </contact>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 -0.1 0.15"/>
+      <geometry>
+        <mesh filename="surface.obj" scale=".1 .1 .15"/>
+      </geometry>
+       <material name="right">
+        <color rgba="1 0 0 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 -0.1 0.15"/>
+      <geometry>
+       <box size="0.2 0.01 0.3"/>
+      </geometry>
+    </collision>
+    </link>
+
+    <link name="front">
+      <contact>
+      <lateral_friction value="1.0"/>
+    </contact>
+    <visual>
+      <origin rpy="0 0 1.57" xyz="0.1 0 0.15"/>
+      <geometry>
+        <mesh filename="surface.obj" scale=".1 .1 .15"/>
+      </geometry>
+       <material name="front">
+        <color rgba="1 0 0 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 1.57" xyz="0.1 0 0.15"/>
+      <geometry>
+       <box size="0.2 0.01 0.3"/>
+      </geometry>
+    </collision>
+    </link>
+
+    <link name="back">
+    <visual>
+      <origin rpy="0 0 1.57" xyz="-0.1 0 0.15"/>
+      <geometry>
+        <mesh filename="surface.obj" scale=".1 .1 .15"/>
+      </geometry>
+       <material name="back">
+        <color rgba="1 0 0 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 1.57" xyz="-0.1 0 0.15"/>
+      <geometry>
+       <box size="0.2 0.01 0.3"/>
+      </geometry>
+    </collision>
+    </link>
+
+
+    <joint name="base_to_left" type="fixed">
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <parent link="base"/>
+      <child link="left"/>
+    </joint>
+
+    <joint name="base_to_right" type="fixed">
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <parent link="base"/>
+      <child link="right"/>
+    </joint>
+
+    <joint name="base_to_front" type="fixed">
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <parent link="base"/>
+      <child link="front"/>
+    </joint>
+
+    <joint name="base_to_back" type="fixed">
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <parent link="base"/>
+      <child link="back"/>
+    </joint>
+
+
+</robot>
+
